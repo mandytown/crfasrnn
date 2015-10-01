@@ -5,7 +5,8 @@
 % Contact:
 % Shuai Zheng (szheng@robots.ox.ac.uk), Sadeep Jayasumana (sadeep@robots.ox.ac.uk), Bernardino Romera-Paredes (bernard@robots.ox.ac.uk)
 %
-% Supervisor: Philip Torr : philip.torr@eng.ox.ac.uk
+% Supervisor: 
+% Philip Torr (philip.torr@eng.ox.ac.uk)
 %
 % For more information about CRF-RNN please vist the project website http://crfasrnn.torr.vision.
 %
