@@ -25,7 +25,7 @@ use_gpu = 1; % Set this to 0 if you don't have a GPU.
 addpath(fullfile(caffe_path, 'matlab/caffe'));
 
 caffe('reset');
-caffe('set_device', 1); % Change here if you have a powerful GPU in different device, nvidia-smi will help you check the device information.
+caffe('set_device', 0); % Change here if you have a powerful GPU in different device, nvidia-smi will help you check the device information.
 
 tvg_matcaffe_init(use_gpu, model_def_file, model_file);
 
