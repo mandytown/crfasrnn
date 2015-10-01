@@ -102,6 +102,35 @@ That's it! Enjoy our software!
 ###1.3 Run the demo
 Matlab and Python scripts for running the demo are available in the matlab-scripts and python-scripts directories, respectively. You can choose either of them. Note that you should change the paths in the scripts according your environment.
 
+####For Python fans:
+First you need to download the model. In Linux, this is:
+```
+sh download_trained_model.sh
+```
+Atlernatively, you can also get the model, by directly click the link in README.md.
+
+Get into python-scripts folder, and then type:
+```
+python crfasrnn_demo.py
+```
+You will get an output.png image.
+
+For your own image, just replace the "input.jpg" in the crfasrnn_demo.py code.
+
+####For Matlab fans:
+First you need to download the model. In Linux, this is:
+```
+sh download_trained_model.sh
+```
+Atlernatively, you can also get the model, by directly click the link in README.md.
+
+Get into matlab-scripts folder, and then load your matlab, then run the crfrnn_demo.m.
+
+Replace the "input.jpg" in the code with your own image filename (path).
+
+
+
+
 # LICENSE
 CRF-RNN feature in Caffe is implemented for the paper:
 Shuai Zheng, Sadeep Jayasumana, Bernardino Romera-Paredes, Vibhav Vineet, Zhizhong Su, Dalong Du, Chang Huang, Philip H. S. Torr.
