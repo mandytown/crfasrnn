@@ -107,26 +107,26 @@ First you need to download the model. In Linux, this is:
 ```
 sh download_trained_model.sh
 ```
-Atlernatively, you can also get the model, by directly click the link in README.md.
+Atlernatively, you can also get the model by directly clicking the link in python-scripts/README.md.
 
-Get into python-scripts folder, and then type:
+Get into the python-scripts folder, and then type:
 ```
 python crfasrnn_demo.py
 ```
 You will get an output.png image.
 
-For your own image, just replace the "input.jpg" in the crfasrnn_demo.py code.
+To use your own images, just replace "input.jpg" in the crfasrnn_demo.py file.
 
 ####For Matlab fans:
 First you need to download the model. In Linux, this is:
 ```
 sh download_trained_model.sh
 ```
-Atlernatively, you can also get the model, by directly click the link in README.md.
+Atlernatively, you can also get the model by directly clicking the link in matlab-scripts/README.md.
 
-Get into matlab-scripts folder, and then load your matlab, then run the crfrnn_demo.m.
+Get into the matlab-scripts folder, load your matlab, then run the crfrnn_demo.m.
 
-Replace the "input.jpg" in the code with your own image filename (path).
+To use your own images, just replace "input.jpg" in the crfrnn_demo.m file.
 
 
 
