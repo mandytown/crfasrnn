@@ -128,7 +128,7 @@ Get into the matlab-scripts folder, load your matlab, then run the crfrnn_demo.m
 
 To use your own images, just replace "input.jpg" in the crfrnn_demo.m file.
 
-
+You can also find part of our model in [MatConvNet](http://www.vlfeat.org/matconvnet/pretrained/).
 
 
 # LICENSE
