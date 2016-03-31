@@ -3,7 +3,7 @@
 
 <b>Live demo:</b> [http://crfasrnn.torr.vision](http://crfasrnn.torr.vision)
 
-This package contains code for the "CRF-RNN" semantic image segmentation method, published in the ICCV 2015 paper [Conditional Random Fields as Recurrent Neural Networks](http://www.robots.ox.ac.uk/~szheng/papers/CRFasRNN.pdf). Our software is built on top of the [Caffe](http://caffe.berkeleyvision.org/) deep learning library. The current version was developed by:
+This package contains code for the "CRF-RNN" semantic image segmentation method, published in the ICCV 2015 paper [Conditional Random Fields as Recurrent Neural Networks](http://www.robots.ox.ac.uk/~szheng/papers/CRFasRNN.pdf). This paper was initially described in an [arXiv tech report](http://arxiv.org/abs/1502.03240). Our software is built on top of the [Caffe](http://caffe.berkeleyvision.org/) deep learning library. The current version was developed by:
 
 [Sadeep Jayasumana](http://www.robots.ox.ac.uk/~sadeep/),
 [Shuai Zheng](http://kylezheng.org/),
@@ -101,6 +101,35 @@ That's it! Enjoy our software!
 
 ###1.3 Run the demo
 Matlab and Python scripts for running the demo are available in the matlab-scripts and python-scripts directories, respectively. You can choose either of them. Note that you should change the paths in the scripts according your environment.
+
+####For Python fans:
+First you need to download the model. In Linux, this is:
+```
+sh download_trained_model.sh
+```
+Atlernatively, you can also get the model by directly clicking the link in python-scripts/README.md.
+
+Get into the python-scripts folder, and then type:
+```
+python crfasrnn_demo.py
+```
+You will get an output.png image.
+
+To use your own images, just replace "input.jpg" in the crfasrnn_demo.py file.
+
+####For Matlab fans:
+First you need to download the model. In Linux, this is:
+```
+sh download_trained_model.sh
+```
+Atlernatively, you can also get the model by directly clicking the link in matlab-scripts/README.md.
+
+Get into the matlab-scripts folder, load your matlab, then run the crfrnn_demo.m.
+
+To use your own images, just replace "input.jpg" in the crfrnn_demo.m file.
+
+You can also find part of our model in [MatConvNet](http://www.vlfeat.org/matconvnet/pretrained/).
+
 
 # LICENSE
 CRF-RNN feature in Caffe is implemented for the paper:

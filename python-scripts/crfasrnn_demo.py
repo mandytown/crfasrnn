@@ -1,17 +1,21 @@
 # -*- coding: utf-8 -*-
 """
-This is a software bundle "CRF-RNN", which is published in a ICCV paper titled "Conditional Random Fields as Recurrent Neural Networks". This is implemented as part of the Caffe library, written in C++/C. The current version is maintained by:
+This package contains code for the "CRF-RNN" semantic image segmentation method, published in the 
+ICCV 2015 paper Conditional Random Fields as Recurrent Neural Networks. Our software is built on 
+top of the Caffe deep learning library.
+ 
+Contact:
+Shuai Zheng (szheng@robots.ox.ac.uk), Sadeep Jayasumana (sadeep@robots.ox.ac.uk), Bernardino Romera-Paredes (bernard@robots.ox.ac.uk)
 
-Shuai Zheng : szheng@robots.ox.ac.uk Sadeep Jayasumana : sadeep@robots.ox.ac.uk Bernardino Romera Paredes :
+Supervisor: 
+Philip Torr (philip.torr@eng.ox.ac.uk)
 
-Supervisor: Philip Torr : philip.torr@eng.ox.ac.uk
-
-For more information about CRF-RNN please vist the project website http://crfasrnn.torr.vision.
+For more information about CRF-RNN, please vist the project website http://crfasrnn.torr.vision.
 """
 
 caffe_root = '../caffe-crfrnn/'
 import sys
-sys.path.insert(0,caffe_root+'python')
+sys.path.insert(0, caffe_root + 'python')
 
 import os
 import cPickle
@@ -27,12 +31,12 @@ import matplotlib.pyplot as plt
 
 MODEL_FILE = 'TVG_CRFRNN_COCO_VOC.prototxt'
 PRETRAINED = 'TVG_CRFRNN_COCO_VOC.caffemodel'
-IMAGE_FILE = '2007_000032.jpg'
+IMAGE_FILE = 'input.jpg'
 
 
 #caffe.set_mode_gpu()
 net = caffe.Segmenter(MODEL_FILE, PRETRAINED)
-input_image = 255*caffe.io.load_image(IMAGE_FILE)
+input_image = 255 * caffe.io.load_image(IMAGE_FILE)
 
 
 width = input_image.shape[0]
@@ -72,7 +76,7 @@ pallete = [0,0,0,
             192,192,0]
 
 mean_vec = np.array([103.939, 116.779, 123.68], dtype=np.float32)
-reshaped_mean_vec = mean_vec.reshape(1,1,3);
+reshaped_mean_vec = mean_vec.reshape(1, 1, 3);
 
 # Rearrange channels to form BGR
 im = image[:,:,::-1]
@@ -86,10 +90,9 @@ pad_w = 500 - cur_w
 im = np.pad(im, pad_width=((0, pad_h), (0, pad_w), (0, 0)), mode = 'constant', constant_values = 0)
 # Get predictions
 segmentation = net.predict([im])
-segmentation2 = segmentation[0:cur_h,0:cur_w]
+segmentation2 = segmentation[0:cur_h, 0:cur_w]
 output_im = PILImage.fromarray(segmentation2)
 output_im.putpalette(pallete)
-
 
 plt.imshow(output_im)
 plt.savefig('output.png')
