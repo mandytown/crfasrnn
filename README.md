@@ -130,6 +130,18 @@ To use your own images, just replace "input.jpg" in the crfrnn_demo.m file.
 
 You can also find part of our model in [MatConvNet](http://www.vlfeat.org/matconvnet/pretrained/).
 
+####Explanation about the CRF-RNN layer:
+If you would like to try out the CRF-RNN model we trained, you should keep the layer name as it is "inference1", so that the code will load the parameters from caffemodel. Otherwise, it will use the parameters set by the users in the deploy.prototxt file.
+
+You should find out that the end-to-end trained CRF-RNN model does better than the alternatives. If you set the CRF-RNN layer name to "inference2", you should observe lower performance since the parameters for both CNN and CRF are not jointly optimized.
+
+
+####For training purpose:
+If you would like to train the CRF-RNN model on other dataset, please follow the piecewise steps described in our paper. You should first train a strong pixel-wise CNN model. After this, you could plug in our CRF-RNN layer into those model by adding the layer to the prototxt. Then you should be able to train the CNN and CRF-RNN layer end-to-end.
+
+Notice that the current deploy.prototxt file we provided is tailed for PASCAL VOC Challenge. This dataset contains 21 class labels including background. You should change the num_output in the corresponding layer if you would like to finetune our model for other dataset. Also, the deconvolution layer in current code does not allow initialize the parameters through prototxt. If you change the num_output there, you should manually re-initialize the parameters in caffemodel file.
+
+
 
 # LICENSE
 CRF-RNN feature in Caffe is implemented for the paper:
