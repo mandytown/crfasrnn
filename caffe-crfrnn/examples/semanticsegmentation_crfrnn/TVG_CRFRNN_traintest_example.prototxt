@@ -1,11 +1,51 @@
-name: 'TVG_CRF_RNN_COCO_VOC'
+name: 'TVG_CRF_RNN_COCO_VOC_TRAINTEST'
 
-input: 'data'
-input_dim: 1
-input_dim: 3
-input_dim: 500
-input_dim: 500
-force_backward: true
+layers {
+  name: "data_rgb"
+  type: DATA
+  top: "data"
+  data_param {
+    source: "/YOURPATH-pascal-lmdb/rgb-train"
+    backend: LMDB
+    batch_size: 1
+  }
+  include: { phase: TRAIN }
+}
+
+layers {
+  name: "data_label"
+  type: DATA
+  top: "label"
+  data_param {
+    source: "/YOURPATH-pascal-lmdb/label-train"
+    backend: LMDB
+    batch_size: 1
+  }
+  include: { phase: TRAIN }
+}
+
+layers {
+  name: "data_rgb"
+  type: DATA
+  top: "data"
+  data_param {
+    source: "/YOURPATH-pascal-lmdb/rgb-val"
+    backend: LMDB
+    batch_size: 1
+  }
+  include: { phase: TEST }
+}
+layers {
+  name: "data_label"
+  type: DATA
+  top: "label"
+  data_param {
+    source: "/YOURPATH-pascal-lmdb/label-val"
+    backend: LMDB
+    batch_size: 1
+  }
+  include: { phase: TEST }
+}
 
 layers { bottom: 'data' top: 'conv1_1' name: 'conv1_1' type: CONVOLUTION
   blobs_lr: 1 blobs_lr: 2 weight_decay: 1 weight_decay: 0
@@ -134,12 +174,12 @@ layers {
   bottom: "Q0"
   bottom: "data"
   top: "pred"
-  blobs_lr: 10000#learning rate for W_G
-  blobs_lr: 10000#learning rate for W_B
-  blobs_lr: 1000 #learning rate for compatiblity transform matrix
+  blobs_lr: 10000#learning rate for matrix W_G
+  blobs_lr: 10000#learning rate for matrix W_B
+  blobs_lr: 1000 #learning rate for compatibility transform matrix
   multi_stage_meanfield_param {
    num_iterations: 10
-   compatibility_mode: POTTS#Initialize the compatilibity transform matrix with a matrix whose diagonal is -1.
+   compatibility_mode: POTTS
    threshold: 2
    theta_alpha: 160
    theta_beta: 3
@@ -147,4 +187,17 @@ layers {
    spatial_filter_weight: 3
    bilateral_filter_weight: 5
   }
+}
+
+layers {
+  name: "loss"
+  type: SOFTMAX_LOSS
+  bottom: "pred"
+  bottom: "label"
+  top: "loss"
+  loss_param {
+    ignore_label: 255
+    normalize: false
+  }
+  include: { phase: TRAIN }
 }
