@@ -13,7 +13,7 @@ Philip Torr (philip.torr@eng.ox.ac.uk)
 For more information about CRF-RNN, please vist the project website http://crfasrnn.torr.vision.
 """
 
-caffe_root = '../caffe-crfrnn/'
+caffe_root = '../caffe/'
 import sys
 sys.path.insert(0, caffe_root + 'python')
 
@@ -29,7 +29,7 @@ import caffe
 import matplotlib.pyplot as plt
 
 
-MODEL_FILE = 'TVG_CRFRNN_COCO_VOC.prototxt'
+MODEL_FILE = 'TVG_CRFRNN_new_deploy.prototxt'
 PRETRAINED = 'TVG_CRFRNN_COCO_VOC.caffemodel'
 IMAGE_FILE = 'input.jpg'
 
