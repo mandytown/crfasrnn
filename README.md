@@ -2,6 +2,7 @@
 ![sample](sample.png)
 
 <b>Live demo:</b> [http://crfasrnn.torr.vision](http://crfasrnn.torr.vision)
+<b>update:</b> This version of code is integrated with the latest caffe future version.
 
 This package contains code for the "CRF-RNN" semantic image segmentation method, published in the ICCV 2015 paper [Conditional Random Fields as Recurrent Neural Networks](http://www.robots.ox.ac.uk/~szheng/papers/CRFasRNN.pdf). This paper was initially described in an [arXiv tech report](http://arxiv.org/abs/1502.03240). Our software is built on top of the [Caffe](http://caffe.berkeleyvision.org/) deep learning library. The current version was developed by:
 
@@ -32,6 +33,10 @@ If you use this code/model for your research, please consider citing the followi
 
 
 #Installation Guide
+First, you should clone the project by doing as below.
+```
+git clone --recursive https://github.com/torrvision/crfasrnn.git
+```
 
 You need to compile the modified Caffe library in this repository. Instructions for Ubuntu 14.04 are included below. You can also consult the generic [Caffe installation guide](http://caffe.berkeleyvision.org/installation.html).
 
@@ -141,6 +146,7 @@ If you would like to train the CRF-RNN model on other dataset, please follow the
 
 Notice that the current deploy.prototxt file we provided is tailed for PASCAL VOC Challenge. This dataset contains 21 class labels including background. You should change the num_output in the corresponding layer if you would like to finetune our model for other dataset. Also, the deconvolution layer in current code does not allow initialize the parameters through prototxt. If you change the num_output there, you should manually re-initialize the parameters in caffemodel file.
 
+See the examples/segmentationcrfasrnn.
 
 
 # LICENSE
