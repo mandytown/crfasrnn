@@ -627,4 +627,3 @@ layer {
    bilateral_filter_weight: 5
   }
 }
-
