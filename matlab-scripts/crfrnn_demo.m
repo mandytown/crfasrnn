@@ -11,9 +11,9 @@
 % For more information about CRF-RNN please vist the project website http://crfasrnn.torr.vision.
 %
 
-caffe_path = '../caffe-crfrnn/';
+caffe_path = '../caffe/';
 
-model_def_file = 'TVG_CRFRNN_COCO_VOC.prototxt';
+model_def_file = 'TVG_CRFRNN_new_deploy.prototxt';
 model_file = 'TVG_CRFRNN_COCO_VOC.caffemodel';
 
 if exist(model_file, 'file') ~= 2
@@ -21,13 +21,13 @@ if exist(model_file, 'file') ~= 2
 end
 
 use_gpu = 1; % Set this to 0 if you don't have a GPU.
+gpu_id = 0;% which gpu device id you are using?
 
-addpath(fullfile(caffe_path, 'matlab/caffe'));
+addpath(fullfile(caffe_path, 'matlab'));
 
-caffe('reset');
-caffe('set_device', 0); % Change here if you have a powerful GPU in different device, nvidia-smi will help you check the device information.
+caffe.reset_all();
 
-tvg_matcaffe_init(use_gpu, model_def_file, model_file);
+net = tvg_matcaffe_init(use_gpu, gpu_id, model_def_file, model_file);
 
 im = imread('input.jpg');
 
@@ -44,7 +44,7 @@ end
 prepared_im = tvg_prepare_image_fixed(im);
 
 inputData = {prepared_im};
-scores = caffe('forward', inputData);    
+scores = net.forward(inputData);    
 
 Q = scores{1};        
         
