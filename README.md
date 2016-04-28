@@ -148,6 +148,23 @@ Notice that the current deploy.prototxt file we provided is tailed for PASCAL VO
 
 See the examples/segmentationcrfasrnn.
 
+####why predictions are all black?
+This could because you set different names for classifier in prototxt, causing the weights are not properly load. This is could also because you change the number of outputs in deconvolution layer in prototxt but you didnot initialize the deconvolution layer properly. 
+
+####MultiStageMeanfield seg fault?
+This error message occurs when you didnot place the spatial.par and bilateral.par in the script path.
+
+####Python training script from third parties
+We would like to thank Martinkersner Masahiro Imai to provide python training scripts for crf-rnn. 
+
+1. [martinkersner Train-CRF-RNN](https://github.com/martinkersner/train-CRF-RNN)
+2. [MasazI crfasrnn-training](https://github.com/MasazI/crfasrnn-training)
+
+####Merge with the upstream caffe
+This is possible to integrate the crfrnn layer into upstream caffe. However, due to the change of crop layers, the caffemodel might require extra training to provide the same accuracy. mtourne has kindly provided a version that merged the code with upstream caffe. 
+1. [mtourne](https://github.com/mtourne/crfasrnn)
+
+Let us know if we miss any other works from third parties.
 
 # LICENSE
 CRF-RNN feature in Caffe is implemented for the paper:
