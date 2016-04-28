@@ -157,12 +157,18 @@ This error message occurs when you didnot place the spatial.par and bilateral.pa
 ####Python training script from third parties
 We would like to thank Martinkersner Masahiro Imai to provide python training scripts for crf-rnn. 
 
-1. [martinkersner Train-CRF-RNN](https://github.com/martinkersner/train-CRF-RNN)
-2. [MasazI crfasrnn-training](https://github.com/MasazI/crfasrnn-training)
+1. [martinkersner python scripts for Train-CRF-RNN](https://github.com/martinkersner/train-CRF-RNN)
+2. [MasazI python scripts for crfasrnn-training](https://github.com/MasazI/crfasrnn-training)
 
 ####Merge with the upstream caffe
-This is possible to integrate the crfrnn layer into upstream caffe. However, due to the change of crop layers, the caffemodel might require extra training to provide the same accuracy. mtourne has kindly provided a version that merged the code with upstream caffe. 
-1. [mtourne](https://github.com/mtourne/crfasrnn)
+This is possible to integrate the crfrnn layer into upstream caffe. However, due to the change of crop layers, the caffemodel might require extra training to provide the same accuracy. mtourne Kindly provided a version that merged the code with upstream caffe. 
+
+1. [mtourne upstream version with CRFRNN](https://github.com/mtourne/crfasrnn)
+
+####GPU version of CRF-RNN
+hyenal kindly provided a purely GPU version of CRF-RNN. This would lead to considerable faster training and testing for end-to-end CRF-RNN training.
+
+1. [hyenal's GPU crf-rnn](https://github.com/hyenal/crfasrnn)
 
 Let us know if we miss any other works from third parties.
 
