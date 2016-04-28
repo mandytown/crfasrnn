@@ -161,12 +161,12 @@ We would like to thank Martinkersner Masahiro Imai to provide python training sc
 2. [MasazI python scripts for crfasrnn-training](https://github.com/MasazI/crfasrnn-training)
 
 ####Merge with the upstream caffe
-This is possible to integrate the crfrnn layer into upstream caffe. However, due to the change of crop layers, the caffemodel might require extra training to provide the same accuracy. mtourne Kindly provided a version that merged the code with upstream caffe. 
+This is possible to integrate the crfrnn layer into upstream caffe. However, due to the change of crop layers, the caffemodel we provided might require extra training to provide the same accuracy. mtourne Kindly provided a version that merged the code with upstream caffe. 
 
 1. [mtourne upstream version with CRFRNN](https://github.com/mtourne/crfasrnn)
 
 ####GPU version of CRF-RNN
-hyenal kindly provided a purely GPU version of CRF-RNN. This would lead to considerable faster training and testing for end-to-end CRF-RNN training.
+hyenal kindly provided a purely GPU version of CRF-RNN. This would lead to considerable faster training and testing for CRF-RNN.
 
 1. [hyenal's GPU crf-rnn](https://github.com/hyenal/crfasrnn)
 
