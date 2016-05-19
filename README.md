@@ -188,4 +188,4 @@ Permutohedral Lattice. Eurographics 2010.
 DenseCRF library from Philipp Krahenbuhl and Vladlen Koltun. Efficient Inference in Fully Connected CRFs with Gaussian Edge Potentials.
 NIPS 2011.
 
-For more information about CRF-RNN please vist the project website http://crfasrnn.torr.vision.
+For more information about CRF-RNN please vist the project website http://crfasrnn.torr.vision. Contact: <crfasrnn@gmail.com>
