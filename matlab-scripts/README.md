@@ -24,5 +24,5 @@ Supervisor:
 Philip Torr : <philip.torr@eng.ox.ac.uk>
 
 ## License
-This model is for the non-commercial. For other use, please contact crfasnn@gmail.com
+This model is for the non-commercial. For other use, please contact <crfasrnn@gmail.com>
 
